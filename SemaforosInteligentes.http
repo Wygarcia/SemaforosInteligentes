@@ -1,0 +1,6 @@
+@SemaforosInteligentes_HostAddress = http://localhost:5215
+
+GET {{SemaforosInteligentes_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
