@@ -26,20 +26,13 @@ public class DimTiempoController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<DimTiempo>> Create(DimTiempoDto dto)
+    public async Task<ActionResult<DimTiempo>> Create(DimTiempo model)
     {
-        var entity = new DimTiempo
-        {
-            Fecha = dto.Fecha,
-            Hora = dto.Hora,
-            DiaSemana = dto.DiaSemana,
-            Mes = dto.Mes,
-            Anio = dto.Anio
-        };
-        _context.DimTiempos.Add(entity);
+        _context.DimTiempos.Add(model);
         await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(Get), new { id = entity.Id }, entity);
+        return CreatedAtAction(nameof(Get), new { id = model.Id }, model);
     }
+
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
