@@ -1,0 +1,136 @@
+.dashboard {
+    position: relative;
+    overflow: hidden;
+    padding: 32px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0f9ff, #ffffff);
+    background-size: 200% 200%;
+    animation: backgroundMove 10s ease infinite;
+    border: 2px solid #aee1ff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.dashboard::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 60%), radial-gradient(circle at 70% 70%, rgba(0, 204, 255, 0.1), transparent 70%);
+    z-index: 0;
+    animation: floatPattern 20s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.dashboard > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes floatPattern {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(30px, 20px);
+    }
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #00bcd4;
+    margin-bottom: 24px;
+    position: relative;
+}
+
+    .dashboard-title::after {
+        content: "";
+        width: 60px;
+        height: 3px;
+        background: #00bcd4;
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        border-radius: 2px;
+        animation: fadeIn 1s ease forwards;
+    }
+
+@keyframes fadeIn {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+
+    100% {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+.card-blue {
+    background-color: #d6ecff;
+    color: #0056b3;
+    border: 1px solid #90caff;
+}
+
+.card-green {
+    background-color: #d2f6e8;
+    color: #1e624b;
+    border: 1px solid #8de2c4;
+}
+
+.card-yellow {
+    background-color: #fff8dd;
+    color: #7a5e00;
+    border: 1px solid #ffe296;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card-value {
+    font-size: 26px;
+    font-weight: bold;
+}

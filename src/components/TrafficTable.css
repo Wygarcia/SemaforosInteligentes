@@ -1,0 +1,142 @@
+﻿.traffic-table-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 35px;
+    background: linear-gradient(135deg, #ffffff, #f4fbff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInSlide 0.8s ease-out;
+}
+
+    .traffic-table-container::before {
+        content: '';
+        position: absolute;
+        top: -60%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 30% 30%, rgba(0, 204, 255, 0.08), transparent 60%), radial-gradient(circle at 70% 70%, rgba(0, 204, 255, 0.06), transparent 60%);
+        animation: floatPattern 30s ease-in-out infinite alternate;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatPattern {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(10px, -10px);
+    }
+}
+
+.table-title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Poppins', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    margin-bottom: 25px;
+    color: #0077cc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeInSlide 1s ease-in-out;
+}
+
+    .table-title::after {
+        content: ' 🚦';
+    }
+
+.traffic-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    color: #1c1c1c;
+    font-size: 15px;
+    z-index: 1;
+    position: relative;
+}
+
+    .traffic-table thead {
+        background-color: #0077cc;
+        color: white;
+    }
+
+    .traffic-table th,
+    .traffic-table td {
+        padding: 14px 12px;
+        text-align: center;
+        border-bottom: 1px solid #e1e7ec;
+        transition: all 0.3s ease;
+    }
+
+    .traffic-table tbody tr {
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+        .traffic-table tbody tr:hover {
+            background-color: #e6f7ff;
+            transform: scale(1.01);
+            box-shadow: inset 0 0 8px rgba(0, 200, 255, 0.08);
+        }
+
+        .traffic-table tbody tr:nth-child(even) {
+            background-color: #f9fbff;
+        }
+
+        .traffic-table tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+.ver-mas-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ver-mas-btn {
+    padding: 12px 24px;
+    background: linear-gradient(to right, #00b4db, #0077cc);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .ver-mas-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+@media (max-width: 768px) {
+    .traffic-table {
+        font-size: 13px;
+    }
+
+        .traffic-table th,
+        .traffic-table td {
+            padding: 10px 6px;
+        }
+
+    .table-title {
+        font-size: 1.5em;
+    }
+}
